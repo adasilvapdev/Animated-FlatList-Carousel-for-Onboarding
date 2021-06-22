@@ -1,6 +1,6 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
-import { OnBoardingScreen, IconsScreen } from '../../../screens/onboarding'
+import { OnBoardingScreen } from '../../../screens/onboarding'
 
 const OnBoardingNavigation: React.FC = () => {
     const Stack = createStackNavigator()
@@ -15,10 +15,6 @@ const OnBoardingNavigation: React.FC = () => {
             <Stack.Screen
                 name="OnBoardingScreen"
                 component={OnBoardingScreen}
-            />
-            <Stack.Screen
-                name="IconsScreen"
-                component={IconsScreen}
             />
         </Stack.Navigator>
     )

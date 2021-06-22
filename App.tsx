@@ -1,21 +1,10 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
-
+import RootNavigation from './app/navigation/RootNavigation'
 
 const App = () => {
 
   return (
-    <SafeAreaView >
-
-    </SafeAreaView>
+    <RootNavigation />
   )
 }
 
