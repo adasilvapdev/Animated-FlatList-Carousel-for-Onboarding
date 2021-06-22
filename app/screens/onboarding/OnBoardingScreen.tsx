@@ -1,17 +1,16 @@
 import React, { useState, useRef } from 'react'
-import { StyleSheet, View, FlatList } from 'react-native'
-import Animated from 'react-native-reanimated'
-import { OnboardingItem } from '../../components/organisms'
+import { StyleSheet, View, FlatList, Animated } from 'react-native'
+import { OnboardingItem, Paginator } from '../../components/organisms'
 import { SLIDES } from '../../utils'
 
 const OnBoardingScreen: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const scrollX = useRef(new Animated.Value(0)).current
   const slidesRef = useRef(null)
-
   const viewableItemsChanged = useRef(({ viewableItems }: any) => {
-    setCurrentIndex(viewableItems[0].items)
+    setCurrentIndex(viewableItems[0].index)
   }).current
+
   const viewConfig = useRef({ viewAreaCoveragePercentThreshold: 50 }).current
 
   return (
@@ -25,7 +24,7 @@ const OnBoardingScreen: React.FC = () => {
           showsHorizontalScrollIndicator
           pagingEnabled
           bounces={false}
-          onScroll={Animated.event([{ naviteEvent: { contentOffset: { x: scrollX } } }], {
+          onScroll={Animated.event([{ nativeEvent: { contentOffset: { x: scrollX } } }], {
             useNativeDriver: false
           })}
           scrollEventThrottle={32}
