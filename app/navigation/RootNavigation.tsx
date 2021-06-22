@@ -1,15 +1,27 @@
 import React from 'react'
-import { NavigationContainer } from '@react-navigation/native'
+import { NavigationContainer, DefaultTheme } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { OnBoardingNavigation } from './sections/onboarding'
+
+const MyTheme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    background: '#fff'
+  },
+};
 
 const Stack = createStackNavigator();
 
 const RootNavigation: React.FC = () => {
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={MyTheme}>
       <Stack.Navigator
-        screenOptions={{ headerShown: false, headerBackTitleVisible: false }}>
+        screenOptions={{
+          headerShown: false,
+          headerBackTitleVisible: false,
+          headerStyle: { backgroundColor: 'red' }
+        }}>
         <Stack.Screen
           name="OnBoardingNavigation"
           component={OnBoardingNavigation}

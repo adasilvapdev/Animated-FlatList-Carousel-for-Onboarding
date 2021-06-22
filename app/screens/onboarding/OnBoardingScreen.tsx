@@ -1,11 +1,19 @@
 import React from 'react'
-import { Text, View, StyleSheet } from 'react-native'
+import { StyleSheet, Text, Image, View, FlatList, useWindowDimensions } from 'react-native'
+import { OnboardingItem } from '../../components/organisms'
+import { SLIDES } from '../../utils'
 
 const OnBoardingScreen: React.FC = () => {
 
   return (
     <View style={styles.container}>
-      <Text>onboarding screen</Text>
+      <FlatList
+        data={SLIDES}
+        renderItem={({ item }) => <OnboardingItem item={item} />}
+        horizontal
+        showsHorizontalScrollIndicator
+        pagingEnabled
+      />
     </View>
   )
 }
